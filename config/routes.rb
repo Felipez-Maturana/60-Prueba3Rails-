@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :songs
+  resources :genres
   devise_for :users, controllers: {
         registrations: 'users/registrations'
 

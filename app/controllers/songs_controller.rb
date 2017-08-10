@@ -4,12 +4,18 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    if params[:search].blank?
+
+   if params[:search].blank?
       @songs = Song.all
    else
-     @songs = Song.where("name like ?", "%#{params[:search]}%")
+    @songs = Song.all
+    @songs = @songs.where("name like ?", "%#{params[:search]}%")
+     
    end
-    
+
+   if params[:alf]=='t'
+     @songs = @songs.order('name ASC')
+   end
   end
 
   # GET /songs/1

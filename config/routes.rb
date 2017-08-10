@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'usuarios/index'
+
   get 'mysongs/index'
+
+  post 'deletesong/:song_id', as: 'deletesong', to: 'mysongs#deletesong'
 
   resources :songs do
     member do 
@@ -14,5 +18,8 @@ Rails.application.routes.draw do
 
       }
   root 'songs#index'
+
+  get 'songsof/:user_id' => 'usuarios#songsof', as: :'songsof' 
+ 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

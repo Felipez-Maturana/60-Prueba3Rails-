@@ -1,7 +1,24 @@
 <h1>Mysongs#index</h1>
-<p>Find me in app/views/mysongs/index.html.erb</p>
 
-
-<% @mysongs.each do |songs| %>
-  <p><%= songs.name %></p>
-<% end %>
+<div class="container">
+  <h2>Mis canciones: </h2>             
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Duracion (in sec)</th>
+        <th>Género</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @mysongs.each do |song| %>
+      <tr>
+        <td><%= song.name %></td>
+        <td><%= song.duration %> s</td>
+        <td><%= song.genre %></td>
+        <td><%= link_to "delete", deletesong_path(song), method: :post  %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

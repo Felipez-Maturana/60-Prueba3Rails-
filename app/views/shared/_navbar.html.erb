@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       <% if user_signed_in? %>
-        <li class="active"><a href="#">Tus pokemons<span class="sr-only">(current)</span></a></li>
+        <li><a href="<%= mysongs_index_path %>">Tus Canciones</a></li>
       <% end %>
         <li><a href="<%= songs_path %>">Canciones</a></li>
         <li><a href="<%= genres_path %>">Géneros</a></li>

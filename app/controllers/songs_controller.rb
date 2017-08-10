@@ -4,7 +4,12 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    if params[:search].blank?
+      @songs = Song.all
+   else
+     @songs = Song.where("name like ?", "%#{params[:search]}%")
+   end
+    
   end
 
   # GET /songs/1
@@ -63,7 +68,7 @@ class SongsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
     def addsong
       @s = Song.find(params[:id])
       current_user.songs << @s

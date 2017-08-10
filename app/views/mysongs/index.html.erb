@@ -16,7 +16,9 @@
         <td><%= song.name %></td>
         <td><%= song.duration %> s</td>
         <td><%= song.genre %></td>
-        <td><%= link_to "delete", deletesong_path(song), method: :post  %></td>
+        <% if can? :deletesong, song %>
+          <td><%= link_to "delete", deletesong_path(song), method: :post  %></td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>

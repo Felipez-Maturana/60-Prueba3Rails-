@@ -18,6 +18,10 @@
         <td><%= song.name %></td>
         <td><%= song.duration %></td>
         <td><%= song.genre %></td>
+        <td>
+          <%= link_to 'Agregar', addsong_song_path(song) ,class: 'btn btn-success', method: :post, data: { confirm: "Estas seguruo que deseas agregar a #{song.name} a tus canciones?", alert: 'Ha sido agregado correctamente'} %>
+        </td>
+
         <td><%= link_to 'Show', song %></td>
         <td><%= link_to 'Edit', edit_song_path(song) %></td>
         <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>

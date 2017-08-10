@@ -25,6 +25,9 @@ class SongsController < ApplicationController
   # POST /songs.json
   def create
     @song = Song.new(song_params)
+    # genres_ids = song_params["genres_ids"].delete_if{ |x| x.empty? }
+    # @genres = Genre.find(genres_ids)
+    # @song.genres << @genres
 
     respond_to do |format|
       if @song.save
@@ -60,6 +63,12 @@ class SongsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+    def addsong
+      @s = Song.find(params[:id])
+      current_user.songs << @s
+      redirect_to songs_path
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -71,4 +80,6 @@ class SongsController < ApplicationController
     def song_params
       params.require(:song).permit(:name, :duration, :genre_id)
     end
+
+
 end

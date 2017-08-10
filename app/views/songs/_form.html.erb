@@ -23,7 +23,9 @@
 
   <div class="field">
     <%= f.label :genre_id %>
-    <%= f.text_field :genre_id %>
+    <%# f.text_field :genre_id %>
+    <%= select("song", "genre_id", Genre.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %>
+ 
   </div>
 
   <div class="actions">

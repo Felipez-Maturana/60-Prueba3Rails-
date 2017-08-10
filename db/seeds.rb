@@ -27,6 +27,6 @@ ro2 = g3.songs.build(name: 'Starway to the heaven remix', duration: 420).save
 
 u1 = User.create!(name: 'felipe', email: 'f@f.cl', password: 'asd123')
 u2 = User.create!(name: 'daniela', email: 'd@d.cl', password: 'asd123')
-u3 = User.create!(name: 'admin', email: 'admin@admin.cl', password: 'asd123')
+u3 = User.create!(name: 'admin', email: 'admin@admin.cl', password: 'asd123', role: 0)
 
 
